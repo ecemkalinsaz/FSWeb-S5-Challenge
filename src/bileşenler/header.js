@@ -31,7 +31,7 @@ const Header = (baslik, tarih, yazi) => {
   headerDiv.appendChild(yaziSpan);
 
   return headerDiv;
-}
+};
 
 const headerEkleyici = (secici) => {
   // GÖREV 2
@@ -41,11 +41,15 @@ const headerEkleyici = (secici) => {
   // Oluşturulan header'i, verilen seçiciyle eşleşen DOM'daki öğeye eklemelidir.
   //
 
-  // İPUCU: querySelector bir string alabilir (bknz: querySelector("#wrapper")) 
+  // İPUCU: querySelector bir string alabilir (bknz: querySelector("#wrapper"))
   // fakat aynı zamanda bir değişken de alabilir (bknz: querySelector(secici))
- 
-  const header = Header('Teknoloji Zamanı', new Date(Date.now()).toLocaleString(), 'Hoşgeldiniz!');
-  document.querySelector(secici).appendChild(header);
-}
 
-export { Header, headerEkleyici }
+  const header = Header(
+    "Teknoloji Zamanı",
+    new Date(Date.now()).toLocaleString(),
+    "Hoşgeldiniz!"
+  );
+  document.querySelector(secici).appendChild(header);
+};
+
+export { Header, headerEkleyici };

@@ -23,12 +23,12 @@ const Tablar = (konu) => {
     const element = konu[i];
     const tabDiv = document.createElement("div");
     tabDiv.classList.add("tab");
-    tabDiv.textContent = element
+    tabDiv.textContent = element;
     topicDiv.appendChild(tabDiv);
   }
 
   return topicDiv;
-}
+};
 
 const tabEkleyici = (secici) => {
   // GÖREV 4
@@ -41,17 +41,16 @@ const tabEkleyici = (secici) => {
   const url = `http://localhost:5001/api/konular`;
 
   axios
-	.get(url)
-	.then((response) => {
-		console.log(response.data);
+    .get(url)
+    .then((response) => {
+      console.log(response.data);
 
-    const konular = Tablar(response.data.konular);
-    document.querySelector(secici).appendChild(konular);
-	})
-	.catch((error) => {
-		console.log(error);
-	});
+      const konular = Tablar(response.data.konular);
+      document.querySelector(secici).appendChild(konular);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
-}
-
-export { Tablar, tabEkleyici }
+export { Tablar, tabEkleyici };

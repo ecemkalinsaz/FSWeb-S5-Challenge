@@ -31,7 +31,7 @@ const Card = (makale) => {
   authorDiv.classList.add("author");
 
   const imgDiv = document.createElement("div");
-  imgDiv.classList.add("img-container");  
+  imgDiv.classList.add("img-container");
 
   const img = document.createElement("img");
   img.src = makale.yazarFoto;
@@ -50,7 +50,7 @@ const Card = (makale) => {
   });
 
   return cardDiv;
-}
+};
 
 const cardEkleyici = (secici) => {
   // GÖREV 6
@@ -65,24 +65,24 @@ const cardEkleyici = (secici) => {
   const url = `http://localhost:5001/api/makaleler`;
 
   axios
-	.get(url)
-	.then((response) => {
-		console.log(response.data);
+    .get(url)
+    .then((response) => {
+      console.log(response.data);
 
-    const makaleler = response.data.makaleler;
+      const makaleler = response.data.makaleler;
 
-    for (const key in makaleler) {
-      const value = makaleler[key];
-      for (let i = 0; i < value.length; i++) {
-        const element = value[i];
-        const card = Card(element);
-        document.querySelector(secici).appendChild(card);
+      for (const key in makaleler) {
+        const value = makaleler[key];
+        for (let i = 0; i < value.length; i++) {
+          const element = value[i];
+          const card = Card(element);
+          document.querySelector(secici).appendChild(card);
+        }
       }
-    }
-
-  }).catch((error) => {
-    console.log(error);
-  });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
-export { Card, cardEkleyici }
+export { Card, cardEkleyici };
