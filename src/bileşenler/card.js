@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const Card = (makale) => {
   // GÖREV 5
   // ---------------------
@@ -17,6 +19,37 @@ const Card = (makale) => {
   //   </div>
   // </div>
   //
+
+  const cardDiv = document.createElement("div");
+  cardDiv.classList.add("card");
+
+  const headLineDiv = document.createElement("div");
+  headLineDiv.classList.add("headline");
+  headLineDiv.textContent = makale.anabaslik;
+
+  const authorDiv = document.createElement("div");
+  authorDiv.classList.add("author");
+
+  const imgDiv = document.createElement("div");
+  imgDiv.classList.add("img-container");  
+
+  const img = document.createElement("img");
+  img.src = makale.yazarFoto;
+
+  const span = document.createElement("span");
+  span.textContent = makale.yazarAdi + " tarafından";
+
+  cardDiv.appendChild(headLineDiv);
+  cardDiv.appendChild(authorDiv);
+  authorDiv.appendChild(imgDiv);
+  imgDiv.appendChild(img);
+  authorDiv.appendChild(span);
+
+  cardDiv.addEventListener("click", () => {
+    console.log(makale.anabaslik);
+  });
+
+  return cardDiv;
 }
 
 const cardEkleyici = (secici) => {
@@ -28,6 +61,40 @@ const cardEkleyici = (secici) => {
   // Card bileşenini kullanarak yanıttaki her makale nesnesinden bir kart oluşturun.
   // Her cardı, fonksiyona iletilen seçiciyle eşleşen DOM'daki öğeye ekleyin.
   //
-}
+
+  const url = `http://localhost:5001/api/makaleler`;
+
+  axios
+	.get(url)
+	.then((response) => {
+		console.log(response.data);
+
+    const makaleler = response.data.makaleler;
+
+    for (const key in makaleler) {
+      const value = makaleler[key];
+      for (let i = 0; i < value.length; i++) {
+        const element = value[i];
+        const card = Card(element);
+        document.querySelector(secici).appendChild(card);
+      }
+    }
+
+    // makaleler.each((key, value) => {
+      
+    //   // const card = Card(makale);
+    //   // document.querySelector(secici).appendChild(card);
+    // });
+  }).catch((error) => {
+    console.log(error);
+  });
+
+  //   const makaleler = Card(response.data.makaleler);
+  //   document.querySelector(secici).appendChild(makaleler);
+	// })
+	// .catch((error) => {
+	// 	console.log(error);
+	// });
+};
 
 export { Card, cardEkleyici }
