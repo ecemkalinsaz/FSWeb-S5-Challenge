@@ -10,9 +10,9 @@ Bu sprint mücadelesi sırasında işbirliği yapmanıza izin verilmez.
 
 ### Proje Kurulumu
 
-* [ ] Bu projenyi forklayarak bir kopyasını oluşturun.
-* [ ] Reponun kendi versiyonunuzu klonlayın.
-* [ ] Commitinizi pushlayın: `git push origin main`.
+- [ ] Bu projenyi forklayarak bir kopyasını oluşturun.
+- [ ] Reponun kendi versiyonunuzu klonlayın.
+- [ ] Commitinizi pushlayın: `git push origin main`.
 
 ## Proje Açıklaması
 
@@ -47,7 +47,6 @@ Aşağıda listelenen minimum uygulanabilir ürün (MVP) spesifikasyonlarını k
 - Yazım denetimi ve dilbilgisi denetimi de dahil olmak üzere çalışmanızı gözden geçirmek, iyileştirmek için zaman planlayın.
 - MVP'yi karşılayan bir meydan okuma göndermek, çok fazla detayla uğraşılıp da çalışmayan bir kod göndermekten daha iyidir.
 
-
 ## Ek Sorular
 
 Aşağıdaki soruları yanıtlayarak bu sprint'in kavramlarını anladığınızı gösterin. Her sorudan sonra yanıtlarınızı eklemek için bu belgeyi düzenleyin.
@@ -57,3 +56,15 @@ Aşağıdaki soruları yanıtlayarak bu sprint'in kavramlarını anladığınız
 3. Bir event dinleyici(listener) nedir?
 4. Neden bir NodeList'i Array'e dönüştürelim??
 5. Bileşen nedir?
+
+## Cevaplar
+
+1. `DOM`, Document Object Model'ün kısaltmasıdır ve web sayfalarında HTML gibi dokümanların yapısını ve özelliklerini temsil eden bir programlama arayüzüdür. DOM, web sayfalarındaki öğeleri (elementler, metin, resimler vb.) ve bunların birbirleriyle olan ilişkilerini ağaç benzeri bir yapıda tutar. Bu yapı, programlama dilleri tarafından kullanılarak web sayfaları dinamik hale getirilir. Bu ağaç yapısını kullanarak, JavaScript kodu bir öğenin alt öğelerini, özelliklerini, metnini vb. okuyabilir ve değiştirebilir.
+
+2. `event`, kullanıcının bir web sayfasındaki bir öğeye tıklaması, bir tuşa basması, bir fare imlecini bir öğenin üzerine getirmesi gibi kullanıcının bir sayfa ile etkileşimde bulunmasına neden olan herhangi bir eylemdir. Ayrıca, sayfanın kendisi yüklendiğinde, bir dosya yüklemesi tamamlandığında vb. otomatik olarak gerçekleşen olaylar da olabilir. Örneğin, bir öğeye (element) tıklandığında, bir tuşa basıldığında veya bir form gönderildiğinde, bu olay JavaScript kodu tarafından dinlenip algılanır. Dinlenen ve ele alınan event'lere göre belirli işlemler gerçekleştirilir.
+
+3. Olay dinleyicisi (`event listener`), bir HTML öğesinin bir event'ine yanıt olarak tetiklenecek bir JavaScript işlevini (function) temsil eder. Yani, belirli bir olay gerçekleştiğinde belirli bir işlevin çağrılmasını sağlar. Örneğin, kullanıcının butona tıklaması, formun gönderilmesi gibi bir dizi olay, bir event listener kullanılarak ele alınabilir.
+
+4. JavaScript'de `NodeList`, adından da anlaşılacağı gibi bir listedir ve öğeleri sırayla depolar. NodeList, çoğu durumda bir diziye benzer, ancak bir dizi değildir. Bu nedenle, bir NodeList'i diziye dönüştürmek, dizi ile aynı özelliklere sahip olmasını sağlar ve daha sonra dizi üzerinde kolayca işlem yapılabilir. Örneğin, bir NodeList üzerindeki öğeleri döngü ile gezerek her bir öğeye bir event listener eklemek istiyorsak, bu NodeList'i önce bir diziye dönüştürmemiz gerekir. Çünkü NodeList üzerinde `forEach()` gibi bazı dizi yöntemleri doğrudan kullanılamazlar. NodeList'i Array'e dönüştürmek için `Array.from()` veya `spread operatörü` kullanabiliriz.
+
+5. Bileşen (`component`), tekrar kullanılabilen bir kod parçasıdır. Kendi işlevselliği ve tasarımı olan bağımsız bir yapıya sahiptir ve başka yerlerde de kullanılabilir. Bileşenler, kodun yeniden kullanılabilirliğini artırır ve kodu daha iyi organize eder. Örneğin, bir card bileşeni, makalenin başlığı, yazarı, fotoğrafı vb. ile birlikte gösterilebilir ve bu bileşen farklı makalelerde de kullanılabilir.
