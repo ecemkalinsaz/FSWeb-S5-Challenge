@@ -80,21 +80,9 @@ const cardEkleyici = (secici) => {
       }
     }
 
-    // makaleler.each((key, value) => {
-      
-    //   // const card = Card(makale);
-    //   // document.querySelector(secici).appendChild(card);
-    // });
   }).catch((error) => {
     console.log(error);
   });
-
-  //   const makaleler = Card(response.data.makaleler);
-  //   document.querySelector(secici).appendChild(makaleler);
-	// })
-	// .catch((error) => {
-	// 	console.log(error);
-	// });
 };
 
 export { Card, cardEkleyici }
